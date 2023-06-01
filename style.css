@@ -1,0 +1,536 @@
+@import url(./variable.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* way to refer to variables */
+    font-family: var(--font-family);
+}
+
+.head-navbar {
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    border-bottom: 1px solid rgb(238, 238, 238);
+    z-index: 1000;
+
+    background-color: var(--clr-white);
+}
+
+.logo,
+.location,
+.search,
+.login,
+.cart {
+    margin: 0px 25px;
+}
+
+.logo svg {
+    width: 80%;
+    height: 30px;
+}
+
+.location .delivery-title {
+    font-size: 15px;
+    font-weight: var(--fw-800);
+
+    margin-bottom: 3px;
+    letter-spacing: 0.8px;
+}
+
+.location .delivery-location {
+    font-size: 11px;
+}
+
+/* validate the functioning */
+.delivery-location .fa-sort-down {
+    transform: translateY(-1px);
+    transform: translateX(2px);
+}
+
+/* use tailwind to give animation here */
+.search i {
+    width: 20px;
+    height: 20px;
+}
+
+.search {
+    width: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+
+    background: var(--search-box-white);
+    color: var(--search-box-grey-2);
+
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding-left: 15px;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+
+    font-size: 12px;
+    font-weight: 100;
+    width: 100%;
+
+    /* complete this */
+    animation: 15000ms ease 0s infinite normal forwards running;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.search .fa-magnifying-glass {
+    width: 12px;
+    color: var(--clr-black);
+}
+
+.login {
+    font-size: 14px;
+    color: var(--search-box-grey-2);
+}
+
+.cart svg {
+    width: 15px;
+    height: 15px;
+}
+
+.cart button {
+    padding: 8px 8px;
+
+    color: var(--clr-white);
+    background-color: var(--clr-green);
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: var(--fw-700);
+
+    border: none;
+}
+
+/* login not working here */
+.search input:focus,
+.login:focus,
+.cart button:focus,
+.list-item-amt .add-button:focus {
+    cursor: pointer;
+}
+
+.wrapper {
+    position: relative;
+    top: 75px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper .banner-1 img,
+.wrapper .banner-2-scroller,
+.wrapper .categories,
+.wrapper .items {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.banner-2-scroller {
+    display: flex;
+    column-gap: 2px;
+
+    /* important for adding scroll if overflow */
+    overflow: auto hidden;
+}
+
+/* to hide the scrollbar */
+.banner-2-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.banner-2-scroller div img {
+    height: 130px;
+    width: 220px;
+    margin-left: 14px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+}
+
+.categories img {
+    width: 100%;
+}
+
+.items-heading {
+    margin: 10px 14px;
+}
+
+.items-heading .h3 {
+    text-align: left;
+    font-weight: var(--fw-700);
+}
+
+.items-list {
+    display: flex;
+    margin: 14px 14px;
+
+    overflow: auto hidden;
+    column-gap: 15px;
+}
+
+.list-item {
+    border: 0.5px solid rgb(232, 232, 232);
+    box-shadow: rgba(0, 0, 0, 0.04);
+    border-radius: 8px;
+
+    padding: 20px;
+}
+
+.list-item img {
+    height: 100px;
+}
+
+.list-item-details {
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 8px;
+}
+
+.list-item-title {
+    font-size: 15px;
+    font-weight: var(--fw-500);
+}
+
+.list-item-qtty {
+    font-size: 12px;
+    color: var(--search-box-grey-2);
+}
+
+.list-item-amt {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.list-item-amt .price {
+    font-size: 13px;
+    font-weight: var(--fw-600);
+}
+
+.list-item-amt .add-button {
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 5px 8px;
+
+    color: var(--clr-green);
+    border: 1px solid var(--clr-green);
+    border-radius: 5px;
+
+    background-color: var(--add-box-inside);
+}
+
+footer {
+    margin: 100px 100px;
+    text-align: center;
+
+    padding: 20px;
+}
+
+.footer-author span {
+    color: red;
+}
+
+/* Mobile Devices */
+@media screen and (min-width:320px) and (max-width:480px) {
+    .head-navbar {
+        height: 50px;
+    }
+
+    .location,
+    .search,
+    .login,
+    .cart {
+        margin: 0px 8px;
+    }
+
+    /* to remove the logo for mobile screen */
+    .logo {
+        display: none;
+    }
+
+    .location .delivery-title {
+        font-size: 7px;
+        font-weight: var(--fw-600);
+
+        letter-spacing: 0px;
+    }
+
+    .location .delivery-location {
+        font-size: 6px;
+    }
+
+    .search i {
+        width: 5px;
+        height: 5px;
+    }
+
+    .search {
+        width: 85%;
+
+        height: 20px;
+        column-gap: 5px;
+
+        padding-left: 10px;
+    }
+
+    .search input {
+        font-size: 10px;
+        padding: 3px;
+    }
+
+    .search .fa-magnifying-glass {
+        width: 8px;
+    }
+
+    .login {
+        font-size: 10px;
+    }
+
+    .cart svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    .cart button {
+        padding: 1px 6px;
+    }
+
+    .cart button span {
+        display: none;
+    }
+
+    .wrapper {
+        top: 60px;
+    }
+
+    .wrapper .banner-1 img {
+        width: 90vw;
+        height: 15vh;
+    }
+
+    .banner-2-scroller {
+        column-gap: 0px;
+    }
+
+    .banner-2-scroller div img {
+        height: 100px;
+        width: 180px;
+
+    }
+
+    .categories {
+        grid-template-columns: repeat(4, 25%);
+        padding: 10px;
+    }
+
+    .categories img {
+        width: 100%;
+    }
+
+    .items-heading {
+        margin: 8px 18px;
+        font-size: 12px;
+    }
+
+    .items-list {
+        column-gap: 5px;
+    }
+
+    .list-item {
+        border: none;
+        padding: 8px;
+    }
+
+    .list-item img {
+        border: 0.5px solid rgb(232, 232, 232);
+        height: 80px;
+        padding: 1px;
+    }
+
+    .list-item-details {
+        row-gap: 3px;
+    }
+
+    .list-item-title {
+        font-size: 10px;
+    }
+
+    .list-item-qtty {
+        font-size: 8px;
+    }
+
+    .list-item-amt .price {
+        font-size: 10px;
+    }
+
+    .list-item-amt .add-button {
+        font-size: 5;
+        padding: 3px 10px;
+    }
+
+    footer {
+        margin: 60px 60px;
+    }
+
+    .footer-author p {
+        font-size: 10px;
+    }
+
+}
+
+/* Tablets */
+@media screen and (min-width:481px) and (max-width:768px) {
+    .head-navbar {
+        height: 70px;
+    }
+
+    .location,
+    .search,
+    .login,
+    .cart {
+        margin: 0px 15px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .location .delivery-title {
+        font-size: 12px;
+        letter-spacing: 0.3px;
+    }
+
+    .location .delivery-location {
+        font-size: 9px;
+    }
+
+    .search i {
+        width: 8px;
+        height: 8px;
+    }
+
+    .search {
+        width: 80%;
+
+        height: 28px;
+        column-gap: 2px;
+
+        padding-left: 6px;
+    }
+
+    .search input {
+        font-size: 11px;
+        padding: 3px;
+    }
+
+    .search .fa-magnifying-glass {
+        width: 10px;
+    }
+
+    .login {
+        font-size: 12px;
+    }
+
+    .cart svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .cart button {
+        padding: 5px 12px;
+    }
+
+    .cart button span {
+        display: none;
+    }
+
+    .wrapper .banner-1 img {
+        width: 90vw;
+        height: 20 vh;
+    }
+
+    .banner-2-scroller {
+        column-gap: 0px;
+    }
+
+    .banner-2-scroller div img {
+        height: 120px;
+        width: 200px;
+
+    }
+
+    .categories {
+        grid-template-columns: repeat(5, 20%);
+        padding: 15px;
+    }
+
+    .list-item {
+        border: none;
+        padding: 8px;
+    }
+
+    .list-item img {
+        border: 0.5px solid rgb(232, 232, 232);
+        height: 80px;
+        padding: 1px;
+    }
+
+    .list-item-details {
+        row-gap: 3px;
+    }
+
+    .list-item-title {
+        font-size: 11px;
+    }
+
+    .list-item-qtty {
+        font-size: 8px;
+    }
+
+    .list-item-amt .price {
+        font-size: 11px;
+    }
+
+    .list-item-amt .add-button {
+        font-size: 5;
+        padding: 3px 10px;
+    }
+
+    footer {
+        margin: 60px 60px;
+    }
+
+    .footer-author p {
+        font-size: 12px;
+    }
+}
